@@ -1,26 +1,126 @@
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #080b14;
+  --foreground: #f5f7ff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.site-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.text-gradient {
+  background: linear-gradient(110deg, #fff 5%, #8bbaff 48%, #b9a2ff 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass {
+  background: rgba(12, 17, 30, .78);
+  border: 1px solid rgba(255,255,255,.09);
+  backdrop-filter: blur(18px);
+}
+
+.hero-glow {
+  background:
+    radial-gradient(ellipse at 50% 42%, rgba(37,99,235,.18), transparent 48%),
+    radial-gradient(ellipse at 85% 55%, rgba(139,92,246,.12), transparent 35%);
+}
+
+.glow-orb {
+  background: radial-gradient(
+    circle at 32% 28%,
+    rgba(191,219,254,.95),
+    rgba(59,130,246,.7) 18%,
+    rgba(37,99,235,.25) 42%,
+    rgba(139,92,246,.12) 58%,
+    transparent 72%
+  );
+  filter: blur(2px);
+}
+
+.service-card {
+  background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.015));
+  border: 1px solid rgba(255,255,255,.09);
+  transition: border-color .3s ease, background .3s ease, transform .3s ease;
+}
+
+.service-card:hover {
+  border-color: rgba(96,165,250,.45);
+  background: linear-gradient(145deg, rgba(59,130,246,.11), rgba(255,255,255,.025));
+}
+
+.project-card {
+  background: linear-gradient(145deg, #151f35, #0b1020);
+  border: 1px solid rgba(255,255,255,.09);
+}
+
+.section-wrap {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.eyebrow {
+  color: #91baff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .section-wrap {
+    width: calc(100% - 36px);
+  }
+
+  .site-grid {
+    background-size: 36px 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 }
